@@ -20,9 +20,9 @@
 char *serv_dir = "/var/tmp/server_data/";
 #define SERV_DIR(name) strcpy(serv_dir, name) 
 #define MSG_SIZE 8000
+#define N 64
 
 const int nmessage = 50000;
 const size_t msg_size = MSG_SIZE;
-const int N = 64;
 const int map_size = 10000;
 const int num_workers = 64/3;

@@ -96,7 +96,7 @@ void *worker_t(void *work_fd) {
                 fptr = open(str, O_RDWR | O_CREAT, 0666);
 		
 		fsize  = msg_size * map_size;
-		int rc = ftruncate(fptr, fsize);
+		ftruncate(fptr, fsize);
                 
 		char *ptr = mmap(NULL, fsize,                                  
 			PROT_WRITE, MAP_SHARED,                                    
@@ -113,7 +113,6 @@ void *worker_t(void *work_fd) {
 
 				loop_c = 0;
 			}
-			//printf("loop_c = %d, nread = %ld\n", loop_c, nread);
                         memcpy(ptr + (size_t)(msg_size * loop_c), buf, nread);
 			i++;
 			//msync(ptr + nread * loop_c, msg_size, MS_ASYNC);

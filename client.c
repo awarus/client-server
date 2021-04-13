@@ -1,7 +1,7 @@
 #include "constraints.h"
 #include <netinet/in.h>
 
-pthread_t pt[64];
+pthread_t pt[N];
 
 void *client_t(void* data);
 
