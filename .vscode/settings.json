@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "in.h": "c",
+        "constraints.h": "c",
+        "ptpool.h": "c",
+        "fcntl.h": "c",
+        "pthread.h": "c",
+        "unistd.h": "c",
+        "string.h": "c",
+        "stdlib.h": "c",
+        "mman.h": "c",
+        "stat.h": "c",
+        "types.h": "c",
+        "socket.h": "c",
+        "inet.h": "c"
+    }
+}

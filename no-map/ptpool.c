@@ -19,11 +19,11 @@ struct pt_pool {
 	pthread_cond_t   is_done;
 };
 
-struct job_args {                                                        
-  ptpool_t* pool;                                                         
-  struct pool_job td;                                                           
-};                                                                              
-  
+struct job_args {
+  ptpool_t* pool;
+  struct pool_job td;
+};
+
 void *worker(void *pool_arg) {
 	ptpool_t *p = (ptpool_t*)pool_arg;
 

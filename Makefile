@@ -15,7 +15,7 @@ $(CLIENT): $(CLIENT).c
 
 $(PTPOOL): $(PTPOOL).c
 	$(CC) -pthread -c $(PTPOOL).c -o lib$(PTPOOL).o
-	ar rcs lib$(PTPOOL).a lib$(PTPOOL).o	
+	ar rcs lib$(PTPOOL).a lib$(PTPOOL).o
 
 $(SERVER): $(SERVER).c
 	$(CC) $(CFLAGS) -o $(SERVER) $(SERVER).c lib$(PTPOOL).a
