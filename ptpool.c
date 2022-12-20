@@ -19,11 +19,11 @@ struct pt_pool {
 	pthread_cond_t   is_done;
 };
 
-struct job_args {                                                        
-  ptpool_t* pool;                                                         
-  struct pool_job td;                                                           
-};                                                                              
-  
+struct job_args {
+  ptpool_t* pool;
+  struct pool_job td;
+};
+
 void *worker(void *pool_arg) {
 	ptpool_t *p = (ptpool_t*)pool_arg;
 
@@ -45,8 +45,9 @@ void *worker(void *pool_arg) {
 		pthread_mutex_lock(&p->mut);
 
 		p->scheduled--;
-		if(p->scheduled == 0) 
+		if(p->scheduled == 0)
 			pthread_cond_signal(&p->is_done);
+
 		pthread_mutex_unlock(&p->mut);
 	}
 
@@ -89,7 +90,7 @@ void ptpool_destroy(ptpool_t *p) {
 
 	free(p->worker_threads);
 	free(p->job_queue);
-	free(p);	
+	free(p);
 }
 
 void ptpool_add_work(ptpool_t *p, void *(*func)(void*), void *arg) {
@@ -111,7 +112,7 @@ void ptpool_add_work(ptpool_t *p, void *(*func)(void*), void *arg) {
 	pthread_mutex_unlock(&p->mut);
 
 	//printf("%d jobs is scheduled\n", p->tail);
-}	
+}
 
 void ptpool_wait(ptpool_t *p) {
 	pthread_mutex_lock(&p->mut);
@@ -121,5 +122,5 @@ void ptpool_wait(ptpool_t *p) {
 	}
 
 	pthread_mutex_unlock(&p->mut);
-}	
+}
 

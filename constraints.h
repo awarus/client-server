@@ -1,24 +1,24 @@
 #pragma once
 
 #include <arpa/inet.h>
-#include <sys/socket.h>                                                         
-#include <sys/types.h>                                                          
+#include <sys/socket.h>
+#include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/mman.h>
 
-#include <stdio.h>                                                              
-#include <stdlib.h>                                                             
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include <unistd.h> 
+#include <unistd.h>
 #include <pthread.h>
-#include <fcntl.h>                                                              
+#include <fcntl.h>
 
 #define home_ip "127.0.0.1"
 
 #define SERVER_DIR "/var/tmp/server_data/"
 #define CLIENT_DIR "/var/tmp/client_dir/"
 char *serv_dir = "/var/tmp/server_data/";
-#define SERV_DIR(name) strcpy(serv_dir, name) 
+#define SERV_DIR(name) strcpy(serv_dir, name)
 #define MSG_SIZE 8000
 #define N 64
 
